@@ -18,7 +18,7 @@ open class User: NSObject, ClientModel, Serializable, SecretApplyable {
     
     var links: [ResourceLink]?
     var encryptedData: String?
-    var info: UserInfo?
+    @objc open var info: UserInfo?
 
     weak var client: RestClient?
     

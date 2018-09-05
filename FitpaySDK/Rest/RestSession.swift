@@ -16,6 +16,10 @@ import Alamofire
 
     // MARK: - Lifecycle
     
+    public convenience override init() {
+        self.init(sessionData:nil, restRequest:nil);
+    }
+    
     public init(sessionData: SessionData? = nil, restRequest: RestRequestable? = nil) {
         if let sessionData = sessionData {
             self.accessToken = sessionData.token

@@ -1,4 +1,4 @@
-protocol RtmConfigProtocol {
+@objc public protocol RtmConfigProtocol {
     var redirectUri: String? { get }
     var deviceInfo: Device? { get set }
     var accessToken: String? { get set }
@@ -7,26 +7,26 @@ protocol RtmConfigProtocol {
     func jsonDict() -> [String: Any]
 }
 
-class RtmConfig: NSObject, Serializable, RtmConfigProtocol {
-    var redirectUri: String?
-    var deviceInfo: Device?
-    var hasAccount: Bool = false
-    var accessToken: String?
+@objc open class RtmConfig: NSObject, Serializable, RtmConfigProtocol {
+    @objc open var redirectUri: String?
+    @objc open var deviceInfo: Device?
+    @objc open var hasAccount: Bool = false
+    @objc open var accessToken: String?
     
-    var language: String?
+    @objc open var language: String?
     
-    private var clientId: String?
-    private var userEmail: String?
-    private var version: String?
-    private var demoMode = false
-    private var customCSSUrl: String?
-    private var demoCardGroup: String?
-    private var baseLanguageUrl: String?
-    private var useWebCardScanner = true
+    @objc open var clientId: String?
+    @objc open var userEmail: String?
+    @objc open var version: String?
+    @objc open var demoMode = false
+    @objc open var customCSSUrl: String?
+    @objc open var demoCardGroup: String?
+    @objc open var baseLanguageUrl: String?
+    @objc open var useWebCardScanner = true
     
-    private var customs: [String: Any] = [:]
+    @objc open var customs: [String: Any] = [:]
     
-    init(userEmail: String?, deviceInfo: Device?, hasAccount: Bool = false) {
+    @objc public init(userEmail: String?, deviceInfo: Device?, hasAccount: Bool = false) {
         super.init()
 
         self.clientId = FitpayConfig.clientId
@@ -58,7 +58,7 @@ class RtmConfig: NSObject, Serializable, RtmConfigProtocol {
         case useWebCardScanner 
     }
     
-    func jsonDict() -> [String: Any] {
+    public func jsonDict() -> [String: Any] {
         var dict = self.toJSON()!
         dict += customs
         return dict

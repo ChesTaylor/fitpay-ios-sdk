@@ -1,5 +1,5 @@
 
-open class ApduResultMessage: NSObject, APDUResponseProtocol {
+@objcMembers open class ApduResultMessage: NSObject, APDUResponseProtocol {
     open var responseData: Data?
 
     public init(hexResult: String) {

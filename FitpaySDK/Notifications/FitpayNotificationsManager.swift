@@ -1,8 +1,8 @@
 import Foundation
 
 open class FitpayNotificationsManager: NSObject {
-    
-    public static let sharedInstance = FitpayNotificationsManager()
+
+    @objc open static let sharedInstance = FitpayNotificationsManager()
     
     public typealias NotificationsPayload = [AnyHashable: Any]
     
@@ -53,7 +53,7 @@ open class FitpayNotificationsManager: NSObject {
      
      - parameter token: notifications token which should be provided by Firebase
      */
-    open func updateNotificationsToken(_ token: String) {
+    @objc open func updateNotificationsToken(_ token: String) {
         notificationsToken = token
         
         SyncRequestQueue.sharedInstance.lastFullSyncRequest?.deviceInfo?.updateNotificationTokenIfNeeded()

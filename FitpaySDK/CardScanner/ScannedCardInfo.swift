@@ -15,4 +15,11 @@ import Foundation
     /// 3-4 digit CVV
     @objc public var cvv: String?
     
+    @objc public func setExpiryMonth(month: UInt) {
+        expiryMonth = month
+    }
+    
+    @objc public func setExpiryYear(year: UInt) {
+        expiryYear = year
+    }
 }
