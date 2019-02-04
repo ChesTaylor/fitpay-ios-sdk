@@ -53,6 +53,10 @@ open class RestClient: NSObject {
     
     // MARK: - Lifecycle
     
+    @objc public convenience init(session: RestSession) {
+        self.init(session:session, restRequest:nil);
+    }
+    
     public init(session: RestSession, restRequest: RestRequestable? = nil) {
         self.session = session
         

@@ -317,6 +317,7 @@
 		3AF3A8F11DDB15AE0037E105 /* ConsoleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3A8EE1DDB15AE0037E105 /* ConsoleOutput.swift */; };
 		3AF3A8F21DDB15AE0037E105 /* FitpaySDKLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3A8EF1DDB15AE0037E105 /* FitpaySDKLogger.swift */; };
 		4109B037357B19B1DBF61B22 /* Pods_all_FitpaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6183344EC5F4DB31C005E1B /* Pods_all_FitpaySDK.framework */; };
+		485AB8E22134438E00CA3A75 /* ObjCCompatibilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AB8E12134438E00CA3A75 /* ObjCCompatibilityExtensions.swift */; };
 		8425931B1CAA605B0006FFA6 /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425931A1CAA605B0006FFA6 /* SyncManager.swift */; };
 		8425931D1CAA613E0006FFA6 /* SyncStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425931C1CAA613E0006FFA6 /* SyncStorage.swift */; };
 		8426D2511C92BB9D009AACFE /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8426D2501C92BB9D009AACFE /* StringExtensions.swift */; };
@@ -650,6 +651,7 @@
 		3AF3A8EE1DDB15AE0037E105 /* ConsoleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleOutput.swift; sourceTree = "<group>"; };
 		3AF3A8EF1DDB15AE0037E105 /* FitpaySDKLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitpaySDKLogger.swift; sourceTree = "<group>"; };
 		3F7B78073594DF28D6A6DA5E /* Pods-all-FitpaySDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-all-FitpaySDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-all-FitpaySDK/Pods-all-FitpaySDK.release.xcconfig"; sourceTree = "<group>"; };
+		485AB8E12134438E00CA3A75 /* ObjCCompatibilityExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjCCompatibilityExtensions.swift; sourceTree = "<group>"; };
 		576F8B977B9F8FB60903CA7D /* Pods_all_FitpaySDKTestsPods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_all_FitpaySDKTestsPods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8425931A1CAA605B0006FFA6 /* SyncManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
 		8425931C1CAA613E0006FFA6 /* SyncStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncStorage.swift; sourceTree = "<group>"; };
@@ -1592,6 +1594,7 @@
 		CD0389AD6419ED1E01710351 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				485AB8E12134438E00CA3A75 /* ObjCCompatibilityExtensions.swift */,
 				9A12277F1C89CF5C006968D7 /* ArrayExtensions.swift */,
 				CD038C64E5144812C865F0AA /* DataExtensions.swift */,
 				CD03877A3C526340ECB9C853 /* DictionaryExtensions.swift */,
@@ -1720,11 +1723,11 @@
 				TargetAttributes = {
 					0AD9229C1C1F7EFC007693AB = {
 						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0930;
+						LastSwiftMigration = 1010;
 					};
 					0AD922A61C1F7EFC007693AB = {
 						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -2034,6 +2037,7 @@
 				9A7C78831CC77F210097BAB9 /* FitpayEventListener.swift in Sources */,
 				2716908E2106739E0026B927 /* RestRequest.swift in Sources */,
 				3701AE581F16180000550890 /* FetchCommitsOperation.swift in Sources */,
+				485AB8E22134438E00CA3A75 /* ObjCCompatibilityExtensions.swift in Sources */,
 				91185B7820615E0C00E5E1CE /* FitpayA2aVerrificationDelegate.swift in Sources */,
 				CD0389401826E2E23F248906 /* SECP256R1KeyPair.swift in Sources */,
 				2735864120E07021005EDA9D /* PlatformConfig.swift in Sources */,
@@ -2413,6 +2417,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s i386";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2466,6 +2471,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s i386";
@@ -2505,8 +2511,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = FitpaySDK;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -2542,8 +2547,7 @@
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = FitpaySDK;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -2565,8 +2569,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitpay.FitpaySDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -2583,8 +2586,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitpay.FitpaySDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
