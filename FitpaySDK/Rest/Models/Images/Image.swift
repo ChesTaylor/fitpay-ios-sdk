@@ -1,6 +1,6 @@
 import Foundation
 
-open class Image: NSObject, ClientModel, Serializable, AssetRetrivable {
+@objcMembers open class Image: NSObject, ClientModel, Serializable, AssetRetrivable {
     open var mimeType: String?
     open var height: Int?
     open var width: Int?

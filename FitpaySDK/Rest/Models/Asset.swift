@@ -1,7 +1,7 @@
 import Foundation
 
 /// Only one Asset item available for specific context
-open class Asset: NSObject {
+@objcMembers open class Asset: NSObject {
     
     open var text: String?
     open var image: UIImage?

@@ -1,6 +1,6 @@
 import Foundation
 
-open class ImageWithOptions: Image {
+@objcMembers open class ImageWithOptions: Image {
 
     private static let selfResourceKey = "self"
 

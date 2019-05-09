@@ -1,7 +1,7 @@
 import Foundation
 import Alamofire
 
-open class RestClient: NSObject {
+@objcMembers open class RestClient: NSObject {
     
     typealias ResultCollectionHandler<T: Codable> = (_ result: ResultCollection<T>?, _ error: ErrorResponse?) -> Void
 
