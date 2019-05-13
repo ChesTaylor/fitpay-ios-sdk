@@ -32,7 +32,7 @@ import Foundation
     /// The credit card expiration year in 4 digits - placed directly on card in creditCardCreated Events (otherwise in CardInfo)
     open var expYear: Int?
     
-    var links: [ResourceLink]?
+    open var links: [ResourceLink]?
     var encryptedData: String?
     
     // nested model to parse top of wallet commands correctly
