@@ -89,6 +89,10 @@ import WebKit
         return wkWebView!
     }
 
+    @objc open func setWvConfig(wvConfigIn: WvConfig) {
+        wvConfig = wvConfigIn
+    }
+    
     /// Loads the main page on Fitpay based on user variables
     @objc open func load() {
         wkWebView.load(wvConfig.getRequest())
