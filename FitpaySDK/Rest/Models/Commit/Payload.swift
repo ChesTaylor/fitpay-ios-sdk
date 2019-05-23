@@ -1,6 +1,6 @@
 import Foundation
 
-open class Payload: NSObject, Serializable {
+@objcMembers open class Payload: NSObject, Serializable {
     
     open var creditCard: CreditCard?
     
