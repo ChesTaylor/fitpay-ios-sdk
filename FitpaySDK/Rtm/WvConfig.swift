@@ -1,31 +1,31 @@
 import Foundation
 import WebKit
 
-class WvConfig: NSObject, WKScriptMessageHandler {
+@objcMembers open class WvConfig: NSObject, WKScriptMessageHandler {
     
-    weak var rtmDelegate: RTMDelegate? {
+    @objc weak open var rtmDelegate: RTMDelegate? {
         didSet {
             self.rtmMessaging.rtmDelegate = rtmDelegate
         }
     }
-    weak var cardScannerPresenterDelegate: FitpayCardScannerPresenterDelegate? {
+    @objc weak open var cardScannerPresenterDelegate: FitpayCardScannerPresenterDelegate? {
         didSet {
             self.rtmMessaging.cardScannerPresenterDelegate = cardScannerPresenterDelegate
         }
     }
-    weak var cardScannerDataSource: FitpayCardScannerDataSource? {
+    @objc weak open var cardScannerDataSource: FitpayCardScannerDataSource? {
         didSet {
             self.rtmMessaging.cardScannerDataSource = cardScannerDataSource
         }
     }
 
-    weak var a2aVerificationDelegate: FitpayA2AVerificationDelegate? {
+    @objc weak open var a2aVerificationDelegate: FitpayA2AVerificationDelegate? {
         didSet {
             self.rtmMessaging.a2aVerificationDelegate = a2aVerificationDelegate
         }
     }
 
-    var user: User? {
+    @objc open var user: User? {
         get {
             return self.configStorage.user
         }
@@ -34,7 +34,7 @@ class WvConfig: NSObject, WKScriptMessageHandler {
         }
     }
     
-    var device: Device? {
+    @objc open var device: Device? {
         get {
             return self.configStorage.device
         }
@@ -43,7 +43,7 @@ class WvConfig: NSObject, WKScriptMessageHandler {
         }
     }
 
-     var a2aReturnLocation: String? {
+     @objc open var a2aReturnLocation: String? {
         get {
             return self.configStorage.a2aReturnLocation
         }
@@ -52,7 +52,7 @@ class WvConfig: NSObject, WKScriptMessageHandler {
         }
     }
         
-    var configStorage = WvConfigStorage()
+    open var configStorage = WvConfigStorage()
     
     var webview: WKWebView?
     var connectionBinding: FitpayEventBinding?
@@ -69,7 +69,7 @@ class WvConfig: NSObject, WKScriptMessageHandler {
         self.init(paymentDevice: paymentDevice, rtmConfig: RtmConfig(userEmail: userEmail, deviceInfo: nil, hasAccount: !isNewAccount))
     }
     
-    init(paymentDevice: PaymentDevice, rtmConfig: RtmConfigProtocol) {
+    @objc public init(paymentDevice: PaymentDevice, rtmConfig: RtmConfigProtocol) {
         self.configStorage.paymentDevice = paymentDevice
         self.configStorage.rtmConfig = rtmConfig
         
@@ -108,7 +108,7 @@ class WvConfig: NSObject, WKScriptMessageHandler {
             }
         }
      */
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+    open func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         guard let sentData = message.body as? [String: Any] else {
             log.error("WV_DATA: Received message from \(message.name), but can't convert it to dictionary type.")
             return
@@ -124,7 +124,7 @@ class WvConfig: NSObject, WKScriptMessageHandler {
      that device. This will attempt to connect, and call the completion with either an error or nil if the connection
      attempt is successful.
      */
-    func openDeviceConnection(_ completion: @escaping (_ error: NSError?) -> Void) {
+    open func openDeviceConnection(_ completion: @escaping (_ error: NSError?) -> Void) {
         self.connectionBinding = self.configStorage.paymentDevice!.bindToEvent(eventType: PaymentDevice.PaymentDeviceEventTypes.onDeviceConnected) { [weak self] (event) in
             guard let strongSelf = self else { return }
             
@@ -151,7 +151,7 @@ class WvConfig: NSObject, WKScriptMessageHandler {
      Sets webview which will be used by fitpay platform.
      Make sure that webViewPageLoaded() will be called, otherwise RTM will not work.
      */
-    func setWebView(_ webview: WKWebView!) {
+    open func setWebView(_ webview: WKWebView!) {
         guard self.webview != webview else { return }
         
         self.rtmVersionSent = false
@@ -162,7 +162,7 @@ class WvConfig: NSObject, WKScriptMessageHandler {
      Should be called when webview will be loaded.
      You can use WKNavigationDelegate.webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) for managing page state.
      */
-    func webViewPageLoaded() {
+    open func webViewPageLoaded() {
         if !rtmVersionSent {
             sendVersion(version: RtmProtocolVersion.currentlySupportedVersion())
         }
@@ -172,7 +172,7 @@ class WvConfig: NSObject, WKScriptMessageHandler {
      This returns the configuration for a WKWebView that will enable the iOS rtm bridge in the web app. Note that
      the value "rtmBridge" is an agreed upon value between this and the web-view.
      */
-    func getConfig() -> WKWebViewConfiguration {
+    open func getConfig() -> WKWebViewConfiguration {
         
         class LeakAvoider: NSObject, WKScriptMessageHandler {
             weak var delegate: WKScriptMessageHandler?
@@ -196,7 +196,7 @@ class WvConfig: NSObject, WKScriptMessageHandler {
     /**
      This returns the request object clients will require in order to open a WKWebView
      */
-    func getRequest() -> URLRequest {
+    open func getRequest() -> URLRequest {
         let client = self.configStorage.user?.client
         if let accessToken = client?.session.accessToken {
             self.configStorage.rtmConfig!.accessToken = accessToken
@@ -218,7 +218,7 @@ class WvConfig: NSObject, WKScriptMessageHandler {
         return request
     }
     
-    func getEncodedConfig() -> String? {
+    open func getEncodedConfig() -> String? {
         let client = self.configStorage.user?.client
         if let accessToken = client?.session.accessToken {
             self.configStorage.rtmConfig!.accessToken = accessToken
@@ -236,7 +236,7 @@ class WvConfig: NSObject, WKScriptMessageHandler {
         return encodedConfig
     }
     
-    func sendRtmMessage(rtmMessage: RtmMessageResponse, retries: Int = 3) {
+    open func sendRtmMessage(rtmMessage: RtmMessageResponse, retries: Int = 3) {
         guard let jsonRepresentation = rtmMessage.toJSONString() else {
             log.error("WV_DATA: Can't create json representation for rtm message.")
             return
@@ -258,7 +258,7 @@ class WvConfig: NSObject, WKScriptMessageHandler {
         }
     }
 
-    func sendStatusMessage(_ message: String, type: WVMessageType) {
+    open func sendStatusMessage(_ message: String, type: WVMessageType) {
         sendRtmMessage(rtmMessage: self.rtmMessaging.messageHandler?.statusResponseMessage(message: message, type: type) ?? RtmMessageResponse(data: ["message": message, "type": type.rawValue], type: "deviceStatus"))
     }
     
@@ -371,14 +371,14 @@ extension WvConfig: RtmOutputDelegate {
 
 extension WvConfig {
     
-   enum WVMessageType: Int {
+    public enum WVMessageType: Int {
         case error = 0
         case success
         case progress
         case pending
     }
 
-    enum RtmProtocolVersion: Int {
+    public enum RtmProtocolVersion: Int {
         case ver1 = 1
         case ver2
         case ver3

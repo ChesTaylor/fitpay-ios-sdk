@@ -1,6 +1,6 @@
 import Foundation
 
-open class Commit: NSObject, ClientModel, Serializable, SecretApplyable {
+@objcMembers open class Commit: NSObject, ClientModel, Serializable, SecretApplyable {
     
     open var commitType: CommitType? {
         return CommitType(rawValue: commitTypeString ?? "") ?? .unknown

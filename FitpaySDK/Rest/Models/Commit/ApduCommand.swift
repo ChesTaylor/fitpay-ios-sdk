@@ -2,12 +2,12 @@ import Foundation
 
 open class APDUCommand: NSObject, Serializable, APDUResponseProtocol {
     
-    open var commandId: String?
-    open var groupId: Int = 0
-    open var sequence: Int = 0
-    open var command: String?
-    open var type: String?
-    open var continueOnFailure: Bool = false
+    @objc open var commandId: String?
+    @objc open var groupId: Int = 0
+    @objc open var sequence: Int = 0
+    @objc open var command: String?
+    @objc open var type: String?
+    @objc open var continueOnFailure: Bool = false
     
     open var responseData: Data?
     

@@ -1,7 +1,7 @@
 import Foundation
 import Alamofire
 
-open class RestClient: NSObject {
+@objcMembers open class RestClient: NSObject {
     
     typealias ResultCollectionHandler<T: Codable> = (_ result: ResultCollection<T>?, _ error: ErrorResponse?) -> Void
     typealias RequestHandler = (_ resultValue: Any?, _ error: ErrorResponse?) -> Void
@@ -62,6 +62,10 @@ open class RestClient: NSObject {
     public typealias ConfirmHandler = (_ error: ErrorResponse?) -> Void
     
     // MARK: - Lifecycle
+    
+    @objc public convenience init(session: RestSession) {
+        self.init(session:session, restRequest:nil);
+    }
     
     public init(session: RestSession, restRequest: RestRequestable? = nil) {
         self.session = session

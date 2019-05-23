@@ -1,6 +1,6 @@
 import Foundation
 
-open class User: NSObject, ClientModel, Serializable, SecretApplyable {
+@objcMembers open class User: NSObject, ClientModel, Serializable, SecretApplyable {
     
     open var id: String?
     open var created: String?
@@ -35,7 +35,7 @@ open class User: NSObject, ClientModel, Serializable, SecretApplyable {
     
     var links: [String: Link]?
     var encryptedData: String?
-    var info: UserInfo?
+    open var info: UserInfo?
     
     weak var client: RestClient?
     

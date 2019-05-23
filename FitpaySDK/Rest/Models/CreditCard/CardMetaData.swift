@@ -1,6 +1,6 @@
 import Foundation
 
-open class CardMetadata: NSObject, ClientModel, Serializable {
+@objcMembers open class CardMetadata: NSObject, ClientModel, Serializable {
     
     open var foregroundColor: String? // TODO: update to UIColor
     open var issuerName: String?

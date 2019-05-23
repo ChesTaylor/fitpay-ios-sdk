@@ -1,8 +1,8 @@
 import Foundation
 
-open class FitpayNotificationsManager: NSObject, ClientModel {
+@objcMembers open class FitpayNotificationsManager: NSObject, ClientModel {
     
-    public static let sharedInstance = FitpayNotificationsManager()
+    open static let sharedInstance = FitpayNotificationsManager()
     
     public typealias NotificationsPayload = [AnyHashable: Any]
     

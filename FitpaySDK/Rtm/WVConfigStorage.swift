@@ -1,14 +1,14 @@
 import Foundation
 
-struct WvConfigStorage {
+@objcMembers open class WvConfigStorage: NSObject {
     private let defaults = UserDefaults.standard
 
-    var paymentDevice: PaymentDevice?
-    var user: User?
-    var device: Device?
-    var rtmConfig: RtmConfigProtocol?
+    open var paymentDevice: PaymentDevice?
+    open var user: User?
+    open var device: Device?
+    open var rtmConfig: RtmConfigProtocol?
     
-    var a2aReturnLocation: String? {
+    open var a2aReturnLocation: String? {
         get {
             return defaults.string(forKey: "a2aReturnLocation")
         }

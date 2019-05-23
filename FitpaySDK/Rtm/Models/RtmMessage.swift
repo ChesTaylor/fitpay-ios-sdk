@@ -1,6 +1,6 @@
 import UIKit
 
-open class RtmMessage: NSObject, Serializable {
+@objcMembers open class RtmMessage: NSObject, Serializable {
     
     open var callBackId: Int?
     open var data: [String: Any]?
