@@ -551,6 +551,7 @@
 		CD038BD672C20128B6711869 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD038848A71603F14A4F8CD7 /* CreditCard.swift */; };
 		CD038D8BCA3144FBB29E8DE4 /* NSErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0382E7C3731302B80C1CBE /* NSErrorExtensions.swift */; };
 		CD038DC45BF133FC5A0D9A94 /* ResourceLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD038EC1AB0F5F167433FC52 /* ResourceLink.swift */; };
+		EBE0C3ED22972278009A97CC /* ObjCCompatibilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE0C3EC22972277009A97CC /* ObjCCompatibilityExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -856,6 +857,7 @@
 		CD038E6F65A6788F30C11986 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		CD038EC1AB0F5F167433FC52 /* ResourceLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceLink.swift; sourceTree = "<group>"; };
 		D037823008438BC1BF4C9156 /* Pods-all-FitpaySDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-all-FitpaySDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-all-FitpaySDK/Pods-all-FitpaySDK.debug.xcconfig"; sourceTree = "<group>"; };
+		EBE0C3EC22972277009A97CC /* ObjCCompatibilityExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjCCompatibilityExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1706,7 +1708,7 @@
 		CD0389AD6419ED1E01710351 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				485AB8E12134438E00CA3A75 /* ObjCCompatibilityExtensions.swift */,
+				EBE0C3EC22972277009A97CC /* ObjCCompatibilityExtensions.swift */,
 				9A12277F1C89CF5C006968D7 /* ArrayExtensions.swift */,
 				CD038C64E5144812C865F0AA /* DataExtensions.swift */,
 				CD03877A3C526340ECB9C853 /* DictionaryExtensions.swift */,
@@ -2095,6 +2097,7 @@
 				847264A01CA53D0800DE801D /* BLEConstants.swift in Sources */,
 				91185B7620615E0C00E5E1CE /* A2AContext.swift in Sources */,
 				27EA81D6208F8A3400FFBB56 /* PaymentDeviceUtils.swift in Sources */,
+				EBE0C3ED22972278009A97CC /* ObjCCompatibilityExtensions.swift in Sources */,
 				277C181720B33749003BD78B /* ResetDeviceResult.swift in Sources */,
 				27EA32B521014A8F001EE6F0 /* NotificationType.swift in Sources */,
 				847264A11CA53D0800DE801D /* BLEDeviceInfoCollector.swift in Sources */,
