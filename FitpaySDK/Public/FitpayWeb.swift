@@ -2,7 +2,7 @@ import Foundation
 import WebKit
 
 /// Main Object for interacting with Fitpay Web app
-@objc open class FitpayWeb: NSObject {
+@objcMembers open class FitpayWeb: NSObject {
     
     /// Use this singleton unless you have a reason for multiple webviews
     @objc public static let shared = FitpayWeb()
@@ -126,7 +126,7 @@ import WebKit
     }
     
     /// Loads links returned from User and CreditCard object
-    open func load(link: Link) {
+    @objc open func load(link: Link) {
         guard let encodedConfig = wvConfig.getEncodedConfig() else { return }
         var url = link.href
         

@@ -1,6 +1,6 @@
 import Foundation
 
-public class Link: Serializable {
-    public var href: String
-    public var templated: Bool?
+@objcMembers open class Link: NSObject, Serializable {
+    open var href: String
+    open var templated: Bool?
 }
