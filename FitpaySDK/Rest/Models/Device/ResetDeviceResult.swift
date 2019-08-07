@@ -1,6 +1,6 @@
 import Foundation
 
-@objcMembers open class ResetDeviceResult: Serializable {
+@objcMembers open class ResetDeviceResult: NSObject, Serializable {
     
     open var resetId: String?
     open var status: DeviceResetStatus?
