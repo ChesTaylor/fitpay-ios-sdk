@@ -37,7 +37,7 @@ import Foundation
     var encryptedData: String?
     open var info: UserInfo?
     
-    weak var client: RestClient?
+    weak public var client: RestClient?
     
     private static let creditCardsResourceKey = "creditCards"
     private static let devicesResourceKey = "devices"
