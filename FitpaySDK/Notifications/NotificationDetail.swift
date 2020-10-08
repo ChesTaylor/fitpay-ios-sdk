@@ -6,7 +6,7 @@ import Alamofire
 ///
 /// Equivalent to SyncInfo in Android
 // TODO: Replace with EventModel for SDK 2.x
-open class NotificationDetail: Serializable, ClientModel {
+@objc open class NotificationDetail: NSObject, Serializable, ClientModel {
     
     open var type: String?
     open var syncId: String?

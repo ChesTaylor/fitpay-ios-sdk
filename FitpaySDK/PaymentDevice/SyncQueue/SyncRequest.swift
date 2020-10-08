@@ -40,6 +40,26 @@ public typealias SyncRequestCompletion = (EventStatus, Error?) -> Void
     ///   - paymentDevice: PaymentDevice object.
     ///   - initiator: syncInitiator Enum object. Defaults to .NotDefined.
     ///   - notificationAsc: NotificationDetail object.
+    @objc public init(syncId: String? = nil, user: User, deviceInfo: Device, paymentDevice: PaymentDevice, notification: NotificationDetail? = nil) {
+        self.requestTime = Date()
+        self.syncId = syncId
+        self.user = user
+        self.deviceInfo = deviceInfo
+        self.paymentDevice = paymentDevice
+        self.syncInitiator = .notDefined
+        self.notification = notification
+    }
+    
+    /// Creates sync request.
+    ///
+    /// - Parameters:
+    ///   - requestTime: time as Date object when request was made. Used for filtering unnecessary syncs. Defaults to Date().
+    ///   - syncId: sync identifier used for not running duplicates
+    ///   - user: User object.
+    ///   - deviceInfo: DeviceInfo object.
+    ///   - paymentDevice: PaymentDevice object.
+    ///   - initiator: syncInitiator Enum object. Defaults to .NotDefined.
+    ///   - notificationAsc: NotificationDetail object.
     public init(requestTime: Date = Date(), syncId: String? = nil, user: User, deviceInfo: Device, paymentDevice: PaymentDevice, initiator: SyncInitiator = .notDefined, notification: NotificationDetail? = nil) {
         self.requestTime = requestTime
         self.syncId = syncId
