@@ -1,6 +1,6 @@
 import Foundation
 
-public enum NotificationsEventType: Int, FitpayEventTypeProtocol {
+@objc public enum NotificationsEventType: Int, FitpayEventTypeProtocol {
     case receivedSyncNotification = 0x1
     case receivedSimpleNotification
     
