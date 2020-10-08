@@ -1,4 +1,4 @@
-public enum EventStatus: Int {
+@objc public enum EventStatus: Int {
     case success = 0
     case failed
     

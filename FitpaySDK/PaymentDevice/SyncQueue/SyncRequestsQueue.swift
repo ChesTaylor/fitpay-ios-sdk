@@ -1,6 +1,6 @@
 import Foundation
 
-open class SyncRequestQueue {
+@objc open class SyncRequestQueue: NSObject {
     
     public static let sharedInstance = SyncRequestQueue(syncManager: SyncManager.sharedInstance)
     
@@ -16,6 +16,7 @@ open class SyncRequestQueue {
     // used for dependency injection
     init(syncManager: SyncManagerProtocol) {
         self.syncManager = syncManager
+        super.init()
         bind()
     }
     
@@ -25,18 +26,18 @@ open class SyncRequestQueue {
 
     // MARK: - Public Functions
     
-    public func addPaymentDevice(user: User?, deviceInfo: Device?, paymentDevice: PaymentDevice?) {
+    open func addPaymentDevice(user: User?, deviceInfo: Device?, paymentDevice: PaymentDevice?) {
         if !paymentDevices.contains(where: { $0.device?.deviceIdentifier == deviceInfo?.deviceIdentifier && $0.user?.id == user?.id }) {
             let device = PaymentDeviceStorage(paymentDevice: paymentDevice, user: user, device: deviceInfo)
             paymentDevices.append(device)
         }
     }
     
-    public func removePaymentDevice(deviceId: String) {
+    open func removePaymentDevice(deviceId: String) {
         paymentDevices = paymentDevices.filter({ $0.device?.deviceIdentifier != deviceId })
     }
     
-    public func add(request: SyncRequest, completion: SyncRequestCompletion?) {
+    @objc open func add(request: SyncRequest, completion: SyncRequestCompletion?) {
         request.completion = completion
         request.update(state: .pending)
         

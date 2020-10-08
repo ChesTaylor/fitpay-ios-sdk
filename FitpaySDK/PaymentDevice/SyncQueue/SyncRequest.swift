@@ -2,7 +2,7 @@ import Foundation
 
 public typealias SyncRequestCompletion = (EventStatus, Error?) -> Void
 
-open class SyncRequest {
+@objc open class SyncRequest: NSObject {
     
     static var syncManager: SyncManagerProtocol = SyncManager.sharedInstance
 
@@ -68,7 +68,7 @@ open class SyncRequest {
         self.syncInitiator = initiator
         self.notification = notification
         
-        if !SyncRequest.syncManager.synchronousModeOn && isEmptyRequest {
+        if !SyncRequest.syncManager.synchronousModeOn && user == nil {
             assert(false, "You should pass all params to SyncRequest in parallel sync mode.")
         }
         
