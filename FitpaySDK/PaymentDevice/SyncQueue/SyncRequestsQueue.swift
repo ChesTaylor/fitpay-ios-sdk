@@ -2,7 +2,7 @@ import Foundation
 
 @objc open class SyncRequestQueue: NSObject {
     
-    public static let sharedInstance = SyncRequestQueue(syncManager: SyncManager.sharedInstance)
+    @objc public static let sharedInstance = SyncRequestQueue(syncManager: SyncManager.sharedInstance)
     
     var paymentDevices: [PaymentDeviceStorage] = []
     
