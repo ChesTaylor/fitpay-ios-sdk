@@ -12,7 +12,7 @@
     }
 }
 
-open class FitpayEvent: NSObject {
+@objcMembers open class FitpayEvent: NSObject {
 
     open private(set) var eventId: FitpayEventTypeProtocol
     open private(set) var status: EventStatus
